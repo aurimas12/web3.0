@@ -1,21 +1,31 @@
 import React from 'react';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Dashboard from '../pages/Dashboard';
-import Bookings from '../pages/Bookings';
-import SellCar from '../pages/SellCar';
-import Settings from '../pages/Settings';
+import { Routes,Route,Navigate } from 'react-router-dom';
+import Home from "../pages/Home";
+import Market from "../pages/Market";
+import Create from "../pages/Create";
+import Contact from "../pages/Contact";
+import SellerProfile from "../pages/SellerProfile";
+import EditProfile from "../pages/EditProfile";
+import Wallet from "../pages/Wallet";
+import NftDetails from "../pages/NftDetails";
 
 const Router = () => {
     return (
-        <BrowserRouter>
+   
             <Routes>
-                <Route path='/dashboard' element={<Dashboard/>} />
-                <Route path='/bookings' element={<Bookings/>} />
-                <Route path='/sell-car' element={<SellCar/>} />
-                <Route path='/settings' element={<Settings/>} />
+                <Route path='/' element={<Navigate to='/home' />}/>
+                <Route path='/home' element={<Home/>} />
+                <Route path='/market' element={<Market/>} />
+                <Route path='/create' element={<Create/>} />
+                <Route path='/contact' element={<Contact/>} />
+                <Route path='/edit-profile' element={<EditProfile/>} />
+                <Route path='/seller-profile' element={<SellerProfile/>} />
+                <Route path='/wallet' element={<Wallet/>} />
+                <Route path='/market/:id' element={<NftDetails/>} />
             </Routes>
-        </BrowserRouter>
+ 
     );
 };
 
 export default Router
+

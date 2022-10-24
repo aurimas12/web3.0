@@ -60,7 +60,7 @@ const COMPANY = [
 ]
 const Footer= ()=> {
   return (
-    <footer>
+    <footer className='footer'>
       <Container>
         <Row>
           <Col lg='3' md='6' sm='6'>

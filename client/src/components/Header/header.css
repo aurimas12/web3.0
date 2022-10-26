@@ -8,6 +8,10 @@
     z-index: 1111111;
 }
 
+.header__shrink{
+    background: #343434;
+    box-shadow: 3px 3px 6px -3px #e250e5;
+}
 .navigation{
     display: flex;
     align-items: center;

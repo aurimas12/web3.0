@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import './header.css';
 import {Container} from 'reactstrap';
 import {NavLink,Link} from 'react-router-dom';
@@ -23,6 +23,7 @@ const NAV_LINKS=[
   }
 ]
 const Header = () => {
+  const menuRef=useRef(null)
   // #TODO add header scroll
   // const headerRef=useRef(null);
   // useEffect(()=>{
@@ -39,6 +40,7 @@ const Header = () => {
   //   // }
   // },[]);
 
+  const toggleMenu=()=> menuRef.current.classList.toggle('active__menu')
 
   return <header className="header">
     <Container>
@@ -51,7 +53,7 @@ const Header = () => {
         
       
 
-      <div className="div nav__menu">
+      <div className="nav__menu" ref={menuRef} onClick={toggleMenu}>
         <ul className="nav__list">
           {
             NAV_LINKS.map((item,index) => (
@@ -76,7 +78,7 @@ const Header = () => {
           </button>
 
           <span className="mobile__menu">
-            <i class='ri-menu-line'></i>
+            <i class='ri-menu-line' onClick={toggleMenu}></i>
           </span>
         </div>
       </div>

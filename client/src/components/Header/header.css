@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content:space-between;
+    background: #14141f;
 }
 
 .nav__list{

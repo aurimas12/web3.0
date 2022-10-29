@@ -33,7 +33,7 @@ const StepSection=()=>{
                 <h3 className='step__title'>Create and sell your NFTS</h3>
             </Col>
             {
-                STEP__DATA.map((item,index)=><Col lg='3' md='4' sm='6' key={index}>
+                STEP__DATA.map((item,index)=><Col lg='3' md='4' sm='6' className='mb-4' key={index}>
                 <div className="single__step__item">
                     <span>
                         <i class={item.icon}></i>

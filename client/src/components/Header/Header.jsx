@@ -48,7 +48,7 @@ const Header = () => {
         <div className='logo'>
           <h2 className="d-flex gap-2 align-items-center"><span>
             <i class="ri-fire-fill"></i>
-          </span>NFTs</h2>
+          </span>Electric Data</h2>
         </div>
         
       
@@ -72,7 +72,7 @@ const Header = () => {
             <Link to='/wallet' className=''>
         
               
-              Connect Wallet
+              Log In
             </Link>
            
           </button>

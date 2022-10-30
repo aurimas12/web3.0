@@ -67,7 +67,7 @@ const Footer= ()=> {
             <div className='logo'>
               <h2 className="d-flex gap-2 align-items-center"><span>
                 <i class="ri-fire-fill"></i>
-              </span>NFTs</h2>
+              </span>Electric Data</h2>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum quaerat ab distinctio asperiores 
                 eligendi, deserunt, minima sequi voluptas nisi necessitatibus iste maxime eius facere corrupti 
                 dicta doloribus! Numquam, debitis quas.

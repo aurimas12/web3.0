@@ -9,7 +9,7 @@ const SellerSelection=() => {
         <Row>
             <Col lg='12' className='mb-5'>
                 <div className="seller__section-title">
-                    <h3>Top Seller</h3>
+                    <h3>Top Buyer</h3>
                 </div>
             </Col>
             {
@@ -22,7 +22,7 @@ const SellerSelection=() => {
 
                     <div className="seller__content">
                         <h6>{item.sellerName}</h6>
-                        <h6>{item.currentBid} ETH</h6>
+                        {/* <h6>{item.currentBid} ETH</h6> */}
                     </div>
                 </div>
             </Col>

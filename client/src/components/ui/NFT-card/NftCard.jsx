@@ -24,14 +24,14 @@ const NftCard = (props) => {
               </div>
 
               <div>
-                  <h6>Current Bid</h6>
-                  <p>{currentBid} ETH</p>
+                  {/* <h6>Current Bid</h6>
+                  <p>{currentBid} ETH</p> */}
               </div>
           </div>
 
       </div>
       <div className='mt-3 d-flex align-items-center justify-content-between'>
-          <button className='bid__btn d-flex align-items-center gap-1'><i class='ri-shopping-bag-line'></i> Place Bid</button>
+          <button className='bid__btn d-flex align-items-center gap-1'><i class='ri-shopping-bag-line'></i> Buy Layer</button>
 
 
           

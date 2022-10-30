@@ -9,7 +9,7 @@ const HeroSection = () => {
         <Row>
             <Col lg='6' md='6'>
                 <div className="div hero__content">
-                    <h2>Discover rare digital art and collect ,<span>sell extraordinary</span> NFTs</h2>
+                    <h2>Discover digital data and collect ,<span>buy extraordinary</span> Electric Data</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A impedit modi 
                         officiis expedita doloribus voluptates vel placeat, neque aliquam nihil 
                         qui voluptatibus cumque optio mollitia assumenda corrupti sed iure autem.

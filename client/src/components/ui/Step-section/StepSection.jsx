@@ -15,7 +15,7 @@ const STEP__DATA=[
         icon:'ri-layout-masonry-line',
     },
     {
-        title:'Add your NFTs',
+        title:'Add your Electric Data',
         desc:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt laudantium quia maiores reiciendis odit et sit repellendus neque, eveniet fugiat ad ipsam sed dolores animi saepe deleniti inventore doloremque aperiam.',
         icon:'ri-image-line',
     },
@@ -30,7 +30,7 @@ const StepSection=()=>{
     <Container>
         <Row>
             <Col lg='12' className='mb-4'>
-                <h3 className='step__title'>Create and sell your NFTS</h3>
+                <h3 className='step__title'>Create and sell your Electric Data</h3>
             </Col>
             {
                 STEP__DATA.map((item,index)=><Col lg='3' md='4' sm='6' className='mb-4' key={index}>

@@ -1,34 +1,35 @@
 import React from 'react'
 import './modal.css'
 
-const Modal=() => {
-  return <div className="modal__wrapper">
-    <div className="modal">
-        <h6>Place a Bid</h6>
-        <p>You must bid at least <span>5.89 ETH</span></p>
+const Modal=({setShowModal}) => {
+  return <div className="modal__wrapper" onClick={()=> setShowModal(false)}>
+    <div className="single__modal">
+        <span className='close__modal'><i class='ri-close-line' onClick={()=> setShowModal(false)}></i></span>
+        <h6 className='text-center text-light'>Place a Bid</h6>
+        <p className='text-center text-light'>You must bid at least <span className='money'>5.89 ETH</span></p>
 
-        <div className="input__item">
+        <div className="input__item mb-4">
             <input type="number" placeholder='00 : 00 ETH'/>
         </div>
 
-        <div className="input__item">
+        <div className="input__item mb-3">
             <h6>Enter Quantity, 7 available</h6>
-            <input type="number" placeholder='00 : 00 ETH'/>
+            <input type="number" placeholder='Enter quantity'/>
         </div>
 
         <div className="d-flex align-items-center justify-content-between">
             <p>You must bid at least</p>
-            <span>5.89 ETH</span>
+            <span className='money'>5.89 ETH</span>
         </div>
 
         <div className="d-flex align-items-center justify-content-between">
             <p>Service Feet</p>
-            <span>5.89 ETH</span>
+            <span className='money'>5.89 ETH</span>
         </div>
 
         <div className="d-flex align-items-center justify-content-between">
             <p>Total Bid Amount</p>
-            <span>5.89 ETH</span>
+            <span className='money'>5.89 ETH</span>
         </div>
         <button className='place__bid-btn'>
             Place a Bid

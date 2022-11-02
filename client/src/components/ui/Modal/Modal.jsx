@@ -23,7 +23,7 @@ const Modal=({setShowModal}) => {
         </div>
 
         <div className="d-flex align-items-center justify-content-between">
-            <p>Service Feet</p>
+            <p>Service Fee</p>
             <span className='money'>5.89 ETH</span>
         </div>
 

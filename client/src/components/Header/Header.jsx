@@ -1,4 +1,4 @@
-import React,{useRef} from 'react'
+import React,{useRef,useState} from 'react'
 import './header.css';
 import {Container} from 'reactstrap';
 import {NavLink,Link} from 'react-router-dom';
@@ -24,27 +24,21 @@ const NAV_LINKS=[
 ]
 const Header = () => {
   const menuRef=useRef(null)
-  // #TODO add header scroll
-  // const headerRef=useRef(null);
-  // useEffect(()=>{
-  //   // window.addEventListener("scroll",()=>{
-  //   //   if(document.body.scrollTop>80 || document.documentElement.scrollTop>80) {
-  //   //     headerRef.current.classList.add('header__shrink');
-  //   //   } else {
-  //   //     headerRef.current.classList.remove('header__shrink');
-  //   //   }
-  //   // });
-
-  //   // return () =>{
-  //   //   window.removeEventListener("scroll");
-  //   // }
-  // },[]);
-
   const toggleMenu=()=> menuRef.current.classList.toggle('active__menu')
+  const [header,setHeader]=useState(false)
+
+  const changeBackground=()=>{
+    if(window.scrollY>=80){
+      setHeader(true)
+    }else{
+      setHeader(false)
+    }
+  }
+  window.addEventListener('scroll',changeBackground)
 
   return <header className="header">
     <Container>
-      <div className="navigation">
+      <div className={header ? 'navigation active' : 'navigation'}>
         <div className='logo'>
           <h2 className="d-flex gap-2 align-items-center"><span>
             <i class="ri-fire-fill"></i>

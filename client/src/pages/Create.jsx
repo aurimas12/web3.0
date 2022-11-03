@@ -1,10 +1,8 @@
 import React from 'react'
 import { Container,Row,Col } from 'reactstrap';
-// import React,{useState} from 'react'
 import CommonSection from '../components/ui/Common-section/CommonSection';
 
 import NftCard from '../components/ui/NFT-card/NftCard';
-import {NFT__DATA} from '../assets/data/data';
 import '../styles/create-item.css';
 import img from '../assets/images/img-01.jpg';
 import avatar from '../assets/images/ava-01.png';

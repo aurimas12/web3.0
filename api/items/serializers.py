@@ -1,15 +1,14 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from items.models import Item,Creator
 
-
-class CreatorSerializer(serializers.HyperlinkedModelSerializer):
+class CreatorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creator
-        fields = '__all__'
+        fields = ['name','image']
 
 
-class ItemSerializer(serializers.HyperlinkedModelSerializer):
+class ItemSerializer(serializers.ModelSerializer):
+    creator = CreatorSerializer()
     class Meta:
         model = Item
-        fields = '__all__'
+        fields = ['title','description','image','creator','current_bid']

@@ -1,33 +1,12 @@
-from django.contrib.auth.models import User, Group
-from rest_framework.views import APIView
-
-from items.serializers import ItemSerializer
-
-
-
 from rest_framework.response import Response
-from rest_framework import permissions
+from rest_framework import viewsets
 
-class SnippetViewSet(APIView):
-    """
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
 
-    Additionally we also provide an extra `highlight` action.
-    """
-    queryset = User.objects.all()
+from .models import Creator,Item
+from .serializers import CreatorSerializer, ItemSerializer
+from rest_framework.viewsets import ModelViewSet
+# Create your views here.
+
+class ItemViewSet(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
-    def get(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        usernames = [user.username for user in User.objects.all()]
-        return Response(usernames)
-
-    # @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
-    # def highlight(self, request, *args, **kwargs):
-    #     snippet = self.get_object()
-    #     return Response(snippet.highlighted)
-
-    # def perform_create(self, serializer):
-    #     serializer.save(owner=self.request.user)
+    queryset = Item.objects.all()

@@ -1,8 +1,19 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import './seller.css';
 import { Container,Row,Col } from 'reactstrap';
 import { SELLER__DATA } from '../../../assets/data/data';
 const SellerSelection=() => {
+    const [data,setData]=useState([])
+
+    useEffect(()=>{
+        const dataFetch= async() =>{
+            const data= await(
+                await fetch('http://127.0.0.1:8000/api/creator/')
+            ).json();
+            setData(data);
+        };
+        dataFetch();
+    },[])
   return <section>
     <Container>
         <Row>
@@ -12,16 +23,16 @@ const SellerSelection=() => {
                 </div>
             </Col>
             {
-                SELLER__DATA.map((item)=>(
+                data.map((item)=>(
                     <Col lg='2' md='3' sm='4' xs='6' key={item.id} className='mb-4'>
                 <div className="single__seller-card d-flex align-items-center gap-3">
                     <div className="seller__img">
-                        <img src={item.sellerImg} alt='' className='w-100'/>
+                        <img src={item.image} alt='' className='w-100'/>
                     </div>
 
                     <div className="seller__content">
-                        <h6>{item.sellerName}</h6>
-                        <h6>{item.currentBid} ETH</h6>
+                        <h6>{item.name}</h6>
+                        <h6>0.00 ETH</h6>
                     </div>
                 </div>
             </Col>

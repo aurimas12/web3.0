@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import CommonSection from '../components/ui/Common-section/CommonSection';
 import { Container,Row,Col } from 'reactstrap';
 import NftCard from '../components/ui/NFT-card/NftCard';
@@ -6,7 +6,19 @@ import {NFT__DATA} from '../assets/data/data'
 import '../styles/market.css'
 
 const Market = () => {
-  const [data,setData]=useState(NFT__DATA)
+  // const [data,setData]=useState(NFT__DATA)
+  const [data,setData]=useState([])
+
+    useEffect(()=>{
+        const dataFetch= async() =>{
+            const data= await(
+                await fetch('http://127.0.0.1:8000/api/items/')
+            ).json();
+            setData(data);
+        };
+        dataFetch();
+    },[])
+
   const handleCategory = ()=>{
 
   }
@@ -79,7 +91,7 @@ const Market = () => {
             </div>
           </Col>
           {
-            data?.map((item)=>(
+            data.map((item)=>(
               <Col lg='3' md='4' sm='6' className='mb-4' key={item.id}>
                 <NftCard item={item} />
               </Col>

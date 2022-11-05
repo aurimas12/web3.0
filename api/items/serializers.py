@@ -11,4 +11,4 @@ class ItemSerializer(serializers.ModelSerializer):
     creator = CreatorSerializer()
     class Meta:
         model = Item
-        fields = ['title','description','image','creator','current_bid']
+        fields = ['id','title','description','image','creator','current_bid']

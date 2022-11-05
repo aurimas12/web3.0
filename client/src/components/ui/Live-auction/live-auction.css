@@ -44,15 +44,19 @@
     border: none;
     outline: none;
     padding: 5px 22px;
-    background: transparent;
+    /* background: transparent; */
     border: 1px solid #5142fc;
     font-size: 0.9rem;
     color: #fff;
     border-radius: 50px;
-    transition: 0.3s;
+    transition: .3s;
     background: #5142fc;
+  
 }
-
+/* .bid__btn i{
+   
+    color: #0dc8a2;
+} */
 .bid__btn:hover{
     background: #fff;
     color: #5142fc;

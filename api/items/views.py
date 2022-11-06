@@ -16,9 +16,23 @@ class ItemViewSet(viewsets.ModelViewSet):
     def retrieve(self, request, pk=None):
         item = get_object_or_404(self.queryset, pk=pk)
         serializer = ItemSerializer(item)
+
+        d= Creator.objects.filter(item=1)
+        print(d)
         return Response(serializer.data)
 class CreatorViewSet(viewsets.ModelViewSet):
     serializer_class = CreatorSerializer
     queryset = Creator.objects.all()
+
+    # def retrieve(self, request, pk=None):
+    #     item = get_object_or_404(self.queryset, pk=pk)
+    #     serializer = ItemSerializer(item)
+
+    #     d= Creator.objects.filter(item=pk)
+    #     print(d)
+    #     # serializer = CreatorSerializer(d)
+
+    #     return {'creator':d.name}
+    
 
     

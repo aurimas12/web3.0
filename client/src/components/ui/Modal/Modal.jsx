@@ -1,10 +1,20 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {useParams} from 'react-router-dom'
 import './modal.css'
 
-const Modal=({setShowModal}) => {
-  return <div className="modal__wrapper" onClick={()=> setShowModal(false)}>
+const Modal=({setShowModal,props}) => {
+    const {id} =useParams('')
+    const [box,setBox]=useState(true)
+    // setBox(setShowModal)
+    console.log(12,box)
+    console.log(124,props)
+  return <div className="modal__wrapper" onClick={()=> setShowModal(box)}>
     <div className="single__modal">
-        <span className='close__modal'><i class='ri-close-line' onClick={()=> setShowModal(false)}></i></span>
+        <span className='close__modal'><i class='ri-close-line' onClick={()=> {
+            setBox(false)
+            setShowModal(false)
+ 
+            }}></i></span>
         <h6 className='text-center text-light'>Place a Bid</h6>
         <p className='text-center text-light'>You must bid at least <span className='money'>5.89 ETH</span></p>
 

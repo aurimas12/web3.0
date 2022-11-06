@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import './trending.css'
 import {Container,Row,Col} from 'reactstrap'
-import {NFT__DATA} from '../../../assets/data/data'
 import NftCard from '../NFT-card/NftCard';
 
 

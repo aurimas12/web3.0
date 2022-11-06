@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import './nft-card.css'
 
 import Modal from '../Modal/Modal'
-// import'../Live-auction/live-auction.css'
+
 const NftCard = (props) => {
     const {id,title,image,creator,current_bid}=props.item
     const [showModal,setShowModal]=useState(false)

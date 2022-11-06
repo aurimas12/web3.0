@@ -4,7 +4,6 @@ import {Container, Row,Col} from 'reactstrap';
 import './live-auction.css';
 
 import NftCard from '../NFT-card/NftCard';
-import { NFT__DATA } from '../../../assets/data/data.js';
 
 const LiveAuction=()=> {
     const [data,setData]=useState([])

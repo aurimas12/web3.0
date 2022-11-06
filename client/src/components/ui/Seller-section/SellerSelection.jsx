@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import './seller.css';
 import { Container,Row,Col } from 'reactstrap';
-import { SELLER__DATA } from '../../../assets/data/data';
+
 const SellerSelection=() => {
     const [data,setData]=useState([])
 

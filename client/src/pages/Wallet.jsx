@@ -1,8 +1,13 @@
 import React,{useState} from 'react'
 
 import CommonSection from '../components/ui/Common-section/CommonSection';
+
 import { Container,Row,Col } from 'reactstrap';
 import {ethers} from 'ethers';
+
+import { Container,Row,Col, Button } from 'reactstrap';
+
+
 import '../styles/wallet.css'
 
 const wallet__data=[
@@ -28,6 +33,7 @@ const wallet__data=[
     }
 ]
 const Wallet=()=> {
+
     const [message,setMessage]=useState(null);
     const [defaultAccount,setDefaultAccount]=useState(null);
     const [userBalance,setUserBalance]=useState(null);
@@ -77,6 +83,27 @@ const Wallet=()=> {
 
     window.ethereum.on('accountsChanged',accountChangeHandler)
     window.ethereum.on('chainChanged',chainChangedHandler)
+
+    const action=false;
+    const handleCheckMetamaskIsCanBeActive=()=>{
+        console.log('bid',window.ethereum.request({method:'eth_requestAccounts'}))
+        if (typeof window.ethereum !== 'undefined') {
+            console.log('MetaMask is installed!');
+          }else{
+            console.log('problem')
+          }
+            console.log('problem')
+
+    }
+    const walletButton=()=>{
+        if (typeof window.ethereum !== 'undefined') {
+            
+            return(<button>Connect Metamask</button>)
+        }else{
+            return(<h3 className='text-light'>not exsist metamask</h3>)
+        }
+    }
+
   return (
     <>
         <CommonSection title='Connect Wallet'/>
@@ -87,7 +114,20 @@ const Wallet=()=> {
                     <Col lg='12' className='mb-5 text-center'>
                         <div className="w-50 m-auto">
                             <h3 className='text-light'>Connect your wallet</h3>
+
                                 {buttonConnected()}
+
+
+                            {walletButton()}
+                         
+
+                            
+                            <p>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque voluptatem quidem natus maxime 
+                                dignissimos alias expedita id, assumenda magni, amet hic ducimus earum quam quos eaque reiciendis
+                                 molestiae, neque iure.
+                            </p>
+
                         </div>
                     </Col>
                     {

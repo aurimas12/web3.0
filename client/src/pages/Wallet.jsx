@@ -1,7 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import CommonSection from '../components/ui/Common-section/CommonSection';
+
+import { Container,Row,Col } from 'reactstrap';
+import {ethers} from 'ethers';
+
 import { Container,Row,Col, Button } from 'reactstrap';
+
 
 import '../styles/wallet.css'
 
@@ -28,6 +33,57 @@ const wallet__data=[
     }
 ]
 const Wallet=()=> {
+
+    const [message,setMessage]=useState(null);
+    const [defaultAccount,setDefaultAccount]=useState(null);
+    const [userBalance,setUserBalance]=useState(null);
+    const [connButtonText,setConnButtonText]=useState('Connect Wallet');
+    const [connected,setConnected] = useState(false)
+    const connectWalletHandler=()=>{
+        if(window.ethereum){
+            window.ethereum.request({method:'eth_requestAccounts'})
+            .then(result=>{
+                console.log(result)
+                accountChangeHandler(result[0])
+                setMessage('MetaMask Connected')
+                setConnected(true)
+            })
+        }else{
+            setMessage('Install MetaMask')
+            setConnected(false)
+        }
+        
+    }
+
+    const accountChangeHandler = (newAccount)=>{
+        setDefaultAccount(newAccount)
+        getUserBalance(newAccount.toString())
+    }
+
+    const getUserBalance=(address)=>{
+        window.ethereum.request({method: 'eth_getBalance',params:[address,'latest']})
+        .then(balance=>{
+            setUserBalance(ethers.utils.formatEther(balance))
+        })
+    }
+    const chainChangedHandler=()=>{
+        window.location.reload()
+    }
+
+    const buttonConnected = ()=>{
+        if(connected){
+            return <h2>{message}</h2>
+        }else{
+            return(
+                <div><button className='btn__connect align-items-center' onClick={connectWalletHandler}>{connButtonText}</button>
+             <h2>{message}</h2></div>
+            ) 
+        }
+    }
+
+    window.ethereum.on('accountsChanged',accountChangeHandler)
+    window.ethereum.on('chainChanged',chainChangedHandler)
+
     const action=false;
     const handleCheckMetamaskIsCanBeActive=()=>{
         console.log('bid',window.ethereum.request({method:'eth_requestAccounts'}))
@@ -47,6 +103,7 @@ const Wallet=()=> {
             return(<h3 className='text-light'>not exsist metamask</h3>)
         }
     }
+
   return (
     <>
         <CommonSection title='Connect Wallet'/>
@@ -58,6 +115,9 @@ const Wallet=()=> {
                         <div className="w-50 m-auto">
                             <h3 className='text-light'>Connect your wallet</h3>
 
+                                {buttonConnected()}
+
+
                             {walletButton()}
                          
 
@@ -67,6 +127,7 @@ const Wallet=()=> {
                                 dignissimos alias expedita id, assumenda magni, amet hic ducimus earum quam quos eaque reiciendis
                                  molestiae, neque iure.
                             </p>
+
                         </div>
                     </Col>
                     {

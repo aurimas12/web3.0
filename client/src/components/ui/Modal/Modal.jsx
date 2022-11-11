@@ -5,9 +5,19 @@ import './modal.css'
 const Modal=({setShowModal,props}) => {
     const {id} =useParams('')
     const [box,setBox]=useState(true)
-    // setBox(setShowModal)
-    console.log(12,box)
-    console.log(124,props)
+
+    const handleBid=()=>{
+        console.log('bid',window.ethereum.request({method:'eth_requestAccounts'}))
+        if (typeof window.ethereum !== 'undefined') {
+            console.log('MetaMask is installed!');
+          }else{
+            console.log('problem')
+          }
+            console.log('problem')
+
+    }
+
+
   return <div className="modal__wrapper" onClick={()=> setShowModal(box)}>
     <div className="single__modal">
         <span className='close__modal'><i class='ri-close-line' onClick={()=> {
@@ -41,7 +51,7 @@ const Modal=({setShowModal,props}) => {
             <p>Total Bid Amount</p>
             <span className='money'>5.89 ETH</span>
         </div>
-        <button className='place__bid-btn'>
+        <button className='place__bid-btn' onClick={handleBid}>
             Place a Bid
         </button>
     </div>

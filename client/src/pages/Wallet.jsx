@@ -1,13 +1,7 @@
 import React,{useState} from 'react'
-
 import CommonSection from '../components/ui/Common-section/CommonSection';
-
 import { Container,Row,Col } from 'reactstrap';
 import {ethers} from 'ethers';
-
-import { Container,Row,Col, Button } from 'reactstrap';
-
-
 import '../styles/wallet.css'
 
 const wallet__data=[

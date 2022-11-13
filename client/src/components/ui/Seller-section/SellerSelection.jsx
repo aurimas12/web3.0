@@ -8,7 +8,7 @@ const SellerSelection=() => {
     useEffect(()=>{
         const dataFetch= async() =>{
             const data= await(
-                await fetch('http://127.0.0.1:8000/api/creator/')
+                await fetch('http://127.0.0.1:8000/api/items/creator/')
             ).json();
             setData(data);
         };

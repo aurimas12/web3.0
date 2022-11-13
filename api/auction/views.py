@@ -8,5 +8,11 @@ class BidViewSet(viewsets.ModelViewSet):
     serializer_class = BidSerializer
 
     def retrieve(self, request, *args, **kwargs):
-        return Response(Bid.objects.filter(item_id=kwargs.get('pk')).count())
+        bids_total=(Bid.objects.filter(item_id=kwargs.get('pk')).count())
+        amounts=(Bid.objects.filter(item_id=kwargs.get('pk')).values('amount'))
+        
+        amount_total=0
+        for amount in amounts:
+            amount_total+=(amount.get('amount'))
+        return Response({'bids_total':bids_total,'amount_total':amount_total})
 

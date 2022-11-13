@@ -112,7 +112,7 @@ const Wallet=()=> {
                                 {buttonConnected()}
 
 
-                            {walletButton()}
+                            {/* {walletButton()} */}
                          
 
                             

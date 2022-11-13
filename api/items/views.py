@@ -17,7 +17,9 @@ class ItemViewSet(viewsets.ModelViewSet):
         d= Creator.objects.filter(item=1)
         print(d)
         return Response(serializer.data)
+
 class CreatorViewSet(viewsets.ModelViewSet):
     serializer_class = CreatorSerializer
     queryset = Creator.objects.all()
+
   

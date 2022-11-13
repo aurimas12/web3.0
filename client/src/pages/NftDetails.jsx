@@ -6,10 +6,12 @@ import CommonSection from '../components/ui/Common-section/CommonSection'
 import '../styles/nft-details.css'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import Web3 from 'web3'
 
 const NftDetails=()=> {
     const {id}=useParams()
     const [product,setProduct]=useState("")
+    const [number,setNumber]=useState("")
     const url = 'http://127.0.0.1:8000'
 
     const getSingleProduct = async()=>{
@@ -17,11 +19,39 @@ const NftDetails=()=> {
         console.log(data)
         setProduct(data)
     }
-    
+
+    // const async loadBlockChainData=()=>{}
+
+    const smartContract=()=>{
+        return false
+    }
+
+
+
+    const bidHandle=async()=>{
+        const postData={
+            'event':'demo event',
+            'amount':number,
+            'item':id
+        }
+
+        await axios({method:'post',url:`http://127.0.0.1:8000/api/auction/bid/create/`,data:postData})
+        .then((result)=>{
+            console.log('result',result.data)
+        }).catch((error)=>{
+            console.log('error',error)
+        })
+        console.log(smartContract())
+    }
+    const getValue=event=>{
+        setNumber(event.target.value)
+    }
+    const providerUrl=''
     useEffect(()=>{
         getSingleProduct();
-        console.log(product?.title)
+        bidHandle();
 
+        const web3=new Web3(providerUrl);
     },[])
   
   return <>
@@ -67,9 +97,22 @@ const NftDetails=()=> {
                             </div>
                         </div>
                         <p className='my-4'>{product.description}</p>
-                        <button className='singleNft-btn d-flex align-items-center gap-2 w-100'>
+
+                        <div className="input__item mb-3">
+                            <h6>Bid Amount</h6>
+                            <input type="number" placeholder='Enter amount' onChange={getValue} />
+                        </div>
+
+                    
+                        {/* <button className='place__bid-btn'>
+                            Place a Bid
+                        </button> */}
+
+
+                        <button className='singleNft-btn d-flex align-items-center gap-2 w-100' onClick={bidHandle}>
                             <i class='ri-shopping-bag-line'></i>
-                            <Link to='/wallet'>Place a Bid</Link>
+                            <Link to='#'>Place a Bid</Link>
+                            {/* <Link to='/wallet'>Place a Bid</Link> */} 
                         </button>
                     </div>
                 </Col>

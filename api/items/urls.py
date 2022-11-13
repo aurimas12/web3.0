@@ -6,12 +6,11 @@ from rest_framework import routers
 from .views import  CreatorViewSet, ItemViewSet
 
 router = routers.DefaultRouter()
-router.register(r'items', ItemViewSet)
+router.register(r'', ItemViewSet)
+# router.register(r'creator', CreatorViewSet)
 urlpatterns = [
     #  path('', include(router.urls)),
+    path('creator/', CreatorViewSet.as_view({'get':'list'})),
      path('', include(router.urls)),
-    #  path('items/', ItemViewSet.as_view({'get':'list'})),
-    #  path('items/{int:pk}/', ItemViewSet.as_view({'get': 'retrieve'})),
-     path('creator/', CreatorViewSet.as_view({'get':'list'})),
 ]
 

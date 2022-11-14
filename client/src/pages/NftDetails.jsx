@@ -6,8 +6,9 @@ import CommonSection from '../components/ui/Common-section/CommonSection'
 import '../styles/nft-details.css'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-import Web3 from 'web3'
-
+import getEthereumContract from '../context/TransactionContext'
+import { ethers } from "ethers";
+import {contractABI,contractAddress} from '../utils/constants'
 const NftDetails=()=> {
     const {id}=useParams()
     const [product,setProduct]=useState("")
@@ -20,9 +21,16 @@ const NftDetails=()=> {
         setProduct(data)
     }
 
-    // const async loadBlockChainData=()=>{}
+
 
     const smartContract=()=>{
+        const {ethereum}=window
+        const provider=new ethers.providers.Web3Provider(ethereum)
+        const signer=provider.getSigner()
+        const transactionContext=new ethers.Contract(contractAddress,contractABI,signer)
+    
+        console.log({provider,signer,transactionContext})
+        
         return false
     }
 
@@ -41,17 +49,18 @@ const NftDetails=()=> {
         }).catch((error)=>{
             console.log('error',error)
         })
-        console.log(smartContract())
     }
     const getValue=event=>{
         setNumber(event.target.value)
     }
-    const providerUrl=''
+
+
+  
+
     useEffect(()=>{
         getSingleProduct();
         bidHandle();
 
-        const web3=new Web3(providerUrl);
     },[])
   
   return <>

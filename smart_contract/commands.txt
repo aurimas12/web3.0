@@ -4,3 +4,8 @@ npx hardhat
 npx hardhat compile
 npx hardhat run scripts/deploy.js --network localhost
 Token address: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+
+npx hardhat run scripts/deploy.js --network ropsten
+
+Compiled 2 Solidity files successfully
+Token address: 0x3F4e2075BDe11fA8e92644820D4C68487D4C86Db

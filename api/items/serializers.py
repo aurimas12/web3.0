@@ -4,7 +4,7 @@ from items.models import Item,Creator
 class CreatorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Creator
-        fields = ['name','image']
+        fields = '__all__'
 
 
 class ItemSerializer(serializers.ModelSerializer):

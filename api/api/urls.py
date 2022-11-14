@@ -17,10 +17,15 @@ schema_view = get_schema_view(
 #    public=True,
 #    permission_classes=[permissions.AllowAny],
 )
+url_patterns=[
+   path("items/", include('items.urls')),
+   path("auction/", include('auction.urls')),
+]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include('items.urls')),
+    path("api/", include(url_patterns)),
+   
     path("", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
 
 ]
